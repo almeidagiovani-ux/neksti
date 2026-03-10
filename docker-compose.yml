@@ -8,4 +8,4 @@ services:
     ports:
       - "3001:3000" # O Nginx manda pra 3001, o Docker recebe e joga pra 3000 (Next.js)
     env_file:
-      - .env.local
+      - .env.local  # Criado automaticamente pelo workflow do GitHub Actions
