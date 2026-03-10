@@ -1,23 +1,33 @@
-# Usa a imagem oficial do Node.js (versão 22 leve)
-FROM node:22-alpine
+FROM node:22-alpine AS base
 
-# Cria a pasta de trabalho dentro do container
+# Dependências
+FROM base AS deps
 WORKDIR /app
-
-# Copia os arquivos de dependência primeiro (otimiza o cache do Docker)
 COPY package.json package-lock.json* ./
+RUN npm ci
 
-# Instala as dependências
-RUN npm install
-
-# Copia o resto do código do projeto
+# Build
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Constrói a aplicação Next.js para produção
 RUN npm run build
 
-# Expõe a porta padrão do Next.js
+# Produção
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+# HOSTNAME 0.0.0.0 é fundamental para o Docker expor a porta corretamente
+ENV HOSTNAME "0.0.0.0"
+ENV PORT 3000
+
+# Next.js standalone (otimizado)
+COPY --from=builder /app/public ./public
+# O Next.js standalone precisa que os estáticos sejam movidos para o seu escopo
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
 EXPOSE 3000
 
-# Comando para iniciar o servidor
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
