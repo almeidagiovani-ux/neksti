@@ -6,6 +6,6 @@ services:
     container_name: neksti_web
     restart: always
     ports:
-      - "3001:3000" # O Nginx manda pra 3001, o Docker recebe e joga pra 3000 (Next.js)
+      - "3005:3000" # O Nginx precisará ser configurado para apontar para a 3005 (Docker roteará para a 3000 interna)
     env_file:
       - .env.local  # Criado automaticamente pelo workflow do GitHub Actions
