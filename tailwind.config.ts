@@ -7,7 +7,27 @@ const config: Config = {
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                brand: {
+                    // Primárias
+                    navy:       '#0D1B2E',
+                    green:      '#2D6E45',
+                    // Suporte
+                    cream:      '#F8F7F4',
+                    'gray-100': '#F2F2F0',
+                    'gray-200': '#E4E4E0',
+                    'gray-400': '#AAAA9E',
+                    'gray-600': '#6B6B60',
+                    mint:       '#6DBF8A',
+                    'green-lt': '#3D8A58',
+                },
+            },
+            fontFamily: {
+                display: ['Montserrat', 'system-ui', 'sans-serif'],
+                sans:    ['Inter', 'system-ui', 'sans-serif'],
+            },
+        },
     },
     plugins: [],
 }
