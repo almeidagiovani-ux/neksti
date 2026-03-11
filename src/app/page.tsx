@@ -31,6 +31,7 @@ import {
   Wallet,
   Link,
   Target,
+  Menu,
 } from 'lucide-react'
 
 const individualServices = [
@@ -105,6 +106,7 @@ const contacts = [
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedContactUrl, setSelectedContactUrl] = useState('')
   const [formData, setFormData] = useState({
     nome: '',
@@ -148,17 +150,37 @@ export default function Home() {
             <a href="#pacotes" className="px-5 py-2.5 rounded-full text-[#0D1B2E] hover:bg-[#0D1B2E] hover:text-[#F8F7F4] transition-all">Pacotes</a>
             <a href="#contato" className="px-5 py-2.5 rounded-full text-[#0D1B2E] hover:bg-[#0D1B2E] hover:text-[#F8F7F4] transition-all">Contato</a>
           </div>
-          <a
-            href="#contato"
-            className="bg-[#2D6E45] hover:bg-[#3D8A58] text-brand-cream text-sm font-bold py-2.5 px-6 rounded-full transition-all shadow-lg"
-          >
-            Falar Conosco
-          </a>
+          
+          <div className="flex items-center gap-4">
+            <button onClick={() => handleOpenContact('5519982185983')} className="bg-[#2D6E45] hover:bg-[#3D8A58] text-white px-6 py-2.5 rounded-full font-bold text-sm transition-colors shadow-md hidden sm:block">
+              Falar Conosco
+            </button>
+            {/* Menu Mobile Toggle */}
+            <button 
+              className="md:hidden text-[#0D1B2E] p-1 focus:outline-none" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Alternar menu"
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Menu Mobile Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-brand-gray-200 bg-[#F2F2F0] px-6 py-6 flex flex-col gap-4 shadow-xl absolute w-full left-0 top-full animate-in slide-in-from-top-2">
+            <a href="#servicos" onClick={() => setMobileMenuOpen(false)} className="text-[#0D1B2E] font-bold text-lg py-3 border-b border-gray-300 hover:text-[#2D6E45]">Serviços</a>
+            <a href="#pacotes" onClick={() => setMobileMenuOpen(false)} className="text-[#0D1B2E] font-bold text-lg py-3 border-b border-gray-300 hover:text-[#2D6E45]">Pacotes</a>
+            <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="text-[#0D1B2E] font-bold text-lg py-3 border-b border-gray-300 hover:text-[#2D6E45]">Contato</a>
+            <button onClick={() => { handleOpenContact('5519982185983'); setMobileMenuOpen(false); }} className="bg-[#2D6E45] hover:bg-[#3D8A58] text-white px-6 py-4 rounded-xl font-bold text-center mt-4 w-full text-lg shadow-md">
+              Falar Conosco
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
-      <section className="container mx-auto px-6 py-28 text-center">
+      <section className="container mx-auto px-6 py-16 md:py-28 text-center">
         <span className="inline-block bg-brand-green/10 border border-brand-green/30 text-brand-green text-sm font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wider uppercase">
           Tecnologia &amp; Marketing Digital
         </span>
@@ -169,7 +191,7 @@ export default function Home() {
             impulsiona negócios
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-brand-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed border-l-4 border-[#2D6E45] pl-6 text-left">
+        <p className="text-lg md:text-xl lg:text-2xl text-brand-gray-100 mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed border-l-4 md:border-l-0 border-[#2D6E45] pl-6 md:pl-0 text-left md:text-center">
           Enquanto outras plataformas apenas organizam o seu WhatsApp, a Neksti é o motor de vendas completo da sua empresa. Capturamos o lead do Instagram/Google, qualificamos com Inteligência Artificial, agendamos a reunião, enviamos lembretes e cobramos via Stripe. Tudo isso sem intervenção humana.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -182,7 +204,7 @@ export default function Home() {
         </div>
       </section>
       {/* Individual Services */}
-      <section id="servicos" className="py-24 bg-[#11233A]">
+      <section id="servicos" className="py-16 md:py-24 bg-[#11233A]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="inline-block bg-brand-green/10 border border-brand-green/30 text-brand-green text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
@@ -204,7 +226,7 @@ export default function Home() {
       </section>
 
       {/* Packages */}
-      <section id="pacotes" className="py-24">
+      <section id="pacotes" className="py-16 md:py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="inline-block bg-brand-green/10 border border-brand-green/30 text-brand-green text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wider uppercase">
@@ -247,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* Integrations */}
-      <section className="py-24 bg-brand-navy relative border-t border-white/5">
+      <section className="py-16 md:py-24 bg-brand-navy relative border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <span className="inline-block bg-[#2D6E45]/20 text-[#6DBF8A] text-sm font-bold px-4 py-2 rounded-full mb-6 tracking-wider uppercase border border-[#2D6E45]/40">
@@ -309,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* Motor de Vendas Completo (A Neksti é para mim?) */}
-      <section className="py-24 bg-black border-t border-neutral-900 relative">
+      <section className="py-16 md:py-24 bg-black border-t border-neutral-900 relative">
         <div className="container mx-auto px-6">
           
           {/* PARTE 1: Gatilhos de Identificacao */}
