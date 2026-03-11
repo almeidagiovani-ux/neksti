@@ -24,6 +24,13 @@ import {
   Briefcase,
   Headphones,
   X,
+  Check,
+  Share2,
+  CalendarDays,
+  Megaphone,
+  Wallet,
+  Link,
+  Target,
 } from 'lucide-react'
 
 const individualServices = [
@@ -163,7 +170,7 @@ export default function Home() {
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-brand-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed border-l-4 border-[#2D6E45] pl-6 text-left">
-          Consultoria especializada em sistemas embarcados e marketing digital de alta performance para a sua empresa.
+          Enquanto outras plataformas apenas organizam o seu WhatsApp, a Neksti é o motor de vendas completo da sua empresa. Capturamos o lead do Instagram/Google, qualificamos com Inteligência Artificial, agendamos a reunião, enviamos lembretes e cobramos via Stripe. Tudo isso sem intervenção humana.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#pacotes" className="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-green-lt text-brand-cream font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand-green/20">
@@ -174,7 +181,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
       {/* Individual Services */}
       <section id="servicos" className="py-24 bg-[#11233A]">
         <div className="container mx-auto px-6">
@@ -236,6 +242,222 @@ export default function Home() {
                 </a>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integrations */}
+      <section className="py-24 bg-brand-navy relative border-t border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <span className="inline-block bg-[#2D6E45]/20 text-[#6DBF8A] text-sm font-bold px-4 py-2 rounded-full mb-6 tracking-wider uppercase border border-[#2D6E45]/40">
+              Ecossistema Fechado
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold font-display mb-6">
+              A Neksti se conecta com as ferramentas que você já usa. Tudo em uma única tela.
+            </h2>
+            <p className="text-xl text-brand-gray-100 leading-relaxed">
+              Chega de pular de aba em aba. Integre seus canais de aquisição, redes sociais e meios de pagamento em um único Hub de Vendas.
+            </p>
+          </div>
+
+          {/* Marquee de Logos de Integração */}
+          <div className="relative w-full overflow-hidden flex items-center mb-16 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-[150px] before:bg-gradient-to-r before:from-brand-navy before:to-transparent before:pointer-events-none after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-[150px] after:bg-gradient-to-l after:from-brand-navy after:to-transparent after:pointer-events-none">
+            <div className="flex animate-marquee w-max items-center whitespace-nowrap">
+              {/* O conjunto de logos precisa ser duplicado para o loop infinito funcionar de forma suave */}
+              {[...Array(2)].map((_, idx) => (
+                <div key={idx} className="flex shrink-0 items-center justify-center gap-16 px-8">
+                  <Image src="/logos/tiktok.png" alt="TikTok" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/quickbooks.png" alt="QuickBooks" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/linkedin.png" alt="LinkedIn" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/google.png" alt="Google" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/slack.png" alt="Slack" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/shippo.png" alt="Shippo" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/instagram.png" alt="Instagram" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/woocommerce.png" alt="WooCommerce" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/google-my-business.png" alt="Google My Business" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/printful.png" alt="Printful" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/xero.png" alt="Xero" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/zapier.png" alt="Zapier" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/whatsapp.png" alt="WhatsApp" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/wave.png" alt="Wave" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/facebook.png" alt="Facebook" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/clio.png" alt="Clio" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/shopify.png" alt="Shopify" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                  <Image src="/logos/stripe.png" alt="Stripe" width={140} height={50} className="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 bg-gradient-to-r from-[#192D4A] to-[#0D1B2E] p-8 rounded-2xl border border-[#2D6E45]/40 flex flex-col md:flex-row items-center gap-8 justify-between">
+            <div className="max-w-3xl">
+              <h3 className="text-2xl font-bold font-display text-brand-cream mb-3 flex items-center gap-3">
+                <Link className="text-[#6DBF8A]" /> A Integração Coringa
+              </h3>
+              <p className="text-brand-gray-100 text-sm leading-relaxed">
+                Com nossos Webhooks e apps oficiais em conectores como <strong>Zapier</strong> e <strong>Make (Integromat)</strong>, você conecta a Neksti a mais de 3.000 ferramentas do mercado brasileiro e global de forma instantânea (Hotmart, Kiwify, Eduzz, RD Station, ActiveCampaign, ERPs e muito mais).
+              </p>
+            </div>
+            <div className="flex gap-4 shrink-0">
+              <div className="px-6 py-3 bg-[#11233A] rounded-xl border border-[#2D6E45]/40 font-bold tracking-wide text-[#6DBF8A] text-sm">ZAPIER</div>
+              <div className="px-6 py-3 bg-[#11233A] rounded-xl border border-[#2D6E45]/40 font-bold tracking-wide text-[#6DBF8A] text-sm">MAKE</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Motor de Vendas Completo (A Neksti é para mim?) */}
+      <section className="py-24 bg-black border-t border-neutral-900 relative">
+        <div className="container mx-auto px-6">
+          
+          {/* PARTE 1: Gatilhos de Identificacao */}
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <span className="inline-block bg-[#2D6E45]/10 border border-[#2D6E45]/30 text-[#6DBF8A] text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wider uppercase">
+                Para quem é
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold font-display text-white">
+                A Neksti é para mim?
+              </h2>
+            </div>
+            
+            <div className="max-w-4xl mx-auto space-y-4">
+              <div className="bg-neutral-950 p-6 md:p-8 rounded-2xl border border-neutral-900 flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-neutral-800 transition-colors">
+                <div className="bg-red-500/10 p-3 rounded-xl shrink-0 mt-1 flex items-center justify-center">
+                  <X className="text-red-400" size={28} />
+                </div>
+                <div className="text-center md:text-left flex-1">
+                  <p className="text-neutral-400 text-lg lg:text-xl font-medium leading-relaxed">
+                    Seus leads esfriam por falta de acompanhamento rápido no WhatsApp?
+                  </p>
+                </div>
+                <div className="font-bold text-[#6DBF8A] flex items-center justify-center md:justify-end gap-2 shrink-0 md:mt-1">
+                  <CheckCircle size={20} /> Então sim.
+                </div>
+              </div>
+
+              <div className="bg-neutral-950 p-6 md:p-8 rounded-2xl border border-neutral-900 flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-neutral-800 transition-colors">
+                <div className="bg-red-500/10 p-3 rounded-xl shrink-0 mt-1 flex items-center justify-center">
+                  <X className="text-red-400" size={28} />
+                </div>
+                <div className="text-center md:text-left flex-1">
+                  <p className="text-neutral-400 text-lg lg:text-xl font-medium leading-relaxed">
+                    Você paga várias ferramentas separadas (CRM, E-mail, Agendamento) e elas não se conversam?
+                  </p>
+                </div>
+                <div className="font-bold text-[#6DBF8A] flex items-center justify-center md:justify-end gap-2 shrink-0 md:mt-1">
+                  <CheckCircle size={20} /> Então sim.
+                </div>
+              </div>
+
+              <div className="bg-neutral-950 p-6 md:p-8 rounded-2xl border border-neutral-900 flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-neutral-800 transition-colors">
+                <div className="bg-red-500/10 p-3 rounded-xl shrink-0 mt-1 flex items-center justify-center">
+                  <X className="text-red-400" size={28} />
+                </div>
+                <div className="text-center md:text-left flex-1">
+                  <p className="text-neutral-400 text-lg lg:text-xl font-medium leading-relaxed">
+                    Seu time perde vendas porque esquece de fazer o follow-up?
+                  </p>
+                </div>
+                <div className="font-bold text-[#6DBF8A] flex items-center justify-center md:justify-end gap-2 shrink-0 md:mt-1">
+                  <CheckCircle size={20} /> Então sim.
+                </div>
+              </div>
+
+              <div className="bg-neutral-950 p-6 md:p-8 rounded-2xl border border-neutral-900 flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-neutral-800 transition-colors">
+                <div className="bg-brand-green/10 p-3 rounded-xl shrink-0 mt-1 flex items-center justify-center border border-brand-green/20">
+                  <Target className="text-brand-green" size={28} />
+                </div>
+                <div className="text-center md:text-left flex-1">
+                  <p className="text-neutral-400 text-lg lg:text-xl font-medium leading-relaxed">
+                    Você quer captar leads no automático direto do Instagram e Google Ads?
+                  </p>
+                </div>
+                <div className="font-bold text-[#6DBF8A] flex items-center justify-center md:justify-end gap-2 shrink-0 md:mt-1">
+                  <CheckCircle size={20} /> Então sim.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PARTE 2: Nossos Diferenciais */}
+          <div>
+            <div className="max-w-4xl mx-auto mb-20 relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#2D6E45]/20 to-transparent blur-3xl opacity-50 -z-10"></div>
+              <blockquote className="text-xl md:text-2xl lg:text-3xl font-medium text-white text-center italic leading-relaxed p-8 md:p-12 border-l-4 border-[#2D6E45] bg-neutral-950/80 backdrop-blur-sm rounded-r-2xl border-y border-r border-neutral-900">
+                "Enquanto outras plataformas apenas organizam o seu WhatsApp, a Neksti é o motor de vendas completo da sua empresa. Capturamos o lead, qualificamos com Inteligência Artificial, agendamos a reunião e enviamos o link de cobrança. Tudo em uma <span className="text-[#6DBF8A] font-bold">única tela.</span>"
+              </blockquote>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {/* Card 1 */}
+              <div className="bg-neutral-950 p-8 rounded-2xl border border-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="w-14 h-14 bg-neutral-900 rounded-xl flex items-center justify-center mb-8 border border-neutral-800 text-white group-hover:bg-[#2D6E45]/20 group-hover:border-[#2D6E45]/50 group-hover:text-[#6DBF8A] transition-colors">
+                  <Bot size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Atendimento com IA</h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  Qualifique leads 24/7 de forma humanizada, antes mesmo de chegar ao seu vendedor.
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-neutral-950 p-8 rounded-2xl border border-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="w-14 h-14 bg-neutral-900 rounded-xl flex items-center justify-center mb-8 border border-neutral-800 text-white group-hover:bg-[#2D6E45]/20 group-hover:border-[#2D6E45]/50 group-hover:text-[#6DBF8A] transition-colors">
+                  <Calendar size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Agendamentos Automáticos</h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  Sincronização bidirecional com Google Calendar. Chega de perguntar "qual o melhor horário?".
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-neutral-950 p-8 rounded-2xl border border-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="w-14 h-14 bg-neutral-900 rounded-xl flex items-center justify-center mb-8 border border-neutral-800 text-white group-hover:bg-[#2D6E45]/20 group-hover:border-[#2D6E45]/50 group-hover:text-[#6DBF8A] transition-colors">
+                  <CreditCard size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Cobrança Nativa</h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  Integração com Stripe para enviar links de pagamento e PIX direto no chat.
+                </p>
+              </div>
+
+              {/* Card 4 */}
+              <div className="bg-neutral-950 p-8 rounded-2xl border border-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="w-14 h-14 bg-neutral-900 rounded-xl flex items-center justify-center mb-8 border border-neutral-800 text-white group-hover:bg-[#2D6E45]/20 group-hover:border-[#2D6E45]/50 group-hover:text-[#6DBF8A] transition-colors">
+                  <Target size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">CRM Multicanal</h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  WhatsApp API Oficial, Instagram Direct e Messenger centralizados em um funil Kanban.
+                </p>
+              </div>
+
+              {/* Card 5 */}
+              <div className="bg-neutral-950 p-8 rounded-2xl border border-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="w-14 h-14 bg-neutral-900 rounded-xl flex items-center justify-center mb-8 border border-neutral-800 text-white group-hover:bg-[#2D6E45]/20 group-hover:border-[#2D6E45]/50 group-hover:text-[#6DBF8A] transition-colors">
+                  <Megaphone size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Marketing & Disparos</h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  E-mail marketing, SMS e disparos em massa no WhatsApp com baixo risco de bloqueio.
+                </p>
+              </div>
+
+              {/* Card 6 */}
+              <div className="bg-neutral-950 p-8 rounded-2xl border border-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="w-14 h-14 bg-neutral-900 rounded-xl flex items-center justify-center mb-8 border border-neutral-800 text-white group-hover:bg-[#2D6E45]/20 group-hover:border-[#2D6E45]/50 group-hover:text-[#6DBF8A] transition-colors">
+                  <Zap size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Automação Infinita</h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  Crie fluxos complexos para recuperação de carrinho, lembretes de consulta e follow-ups automáticos.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
